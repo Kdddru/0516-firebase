@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { firestore } from './data/fireBase';
 
 function App() {
+  const [value2,setValue2] = useState();
+  const myName = firestore.collection('myName');
+  useEffect(()=>{
+    const myName = firestore.collection('myName');
+    myName.doc("hkbg0ek0JPsF3BiU1jpC").get().then((doc)=>{
+      const value = doc.data();
+      setValue2(value);
+    })
+  },[])
+  console.log(value2);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
