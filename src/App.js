@@ -3,7 +3,6 @@ import './App.css';
 import { firestore } from './data/fireBase';
 
 function App() {
-  my
   return (
     <div className="App">
     </div>
